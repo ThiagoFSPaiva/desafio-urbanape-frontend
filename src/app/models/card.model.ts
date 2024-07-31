@@ -8,6 +8,5 @@ export type Card = {
 
 export type CardCreation = {
     name: string,
-    number: string,
     type: "TRABALHADOR" | "COMUM" | "ESTUDANTE";
 }

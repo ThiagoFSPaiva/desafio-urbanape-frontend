@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/enviroment';
-import { Card } from '../../models/card.model';
+import { Card, CardCreation } from '../../models/card.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -24,7 +24,12 @@ export class CardService {
     const url = `${this.baseUrl}/${id}?status=${status}`;
     return this.httpClient.patch<Card>(url, { status });
   }
-  
+
+  createCard(cardCreation: CardCreation, userId: string): Observable<Card> {
+    const url = `${this.baseUrl}/user/${userId}`;
+    return this.httpClient.post<Card>(url, cardCreation);
+  }
+
   deleteCard(id: string): Observable<void> {
     return this.httpClient.delete<void>(`${this.baseUrl}/${id}`);
   }

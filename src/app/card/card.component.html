@@ -31,4 +31,35 @@
         </tr>
       </tbody>
     </table>
+
+
+    <!-- Selecione um usuário -->
+    <div class="form-group mb-3">
+        <label for="userSelect">Selecione um usuário:</label>
+        <select id="userSelect" class="form-control" [(ngModel)]="selectedUserId" name="userSelect" (change)="loadCards()">
+          <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+        </select>
+      </div>
+    
+      <!-- Formulário para criar um novo cartão -->
+      <form (ngSubmit)="createCard()">
+        <div class="form-group mb-3">
+          <label for="cardName">Nome do Cartão:</label>
+          <input type="text" id="cardName" class="form-control" [(ngModel)]="newCard.name" name="cardName" required>
+        </div>
+    
+        <div class="form-group mb-3">
+          <label for="cardType">Tipo de Cartão:</label>
+          <select id="cardType" class="form-control" [(ngModel)]="newCard.type" name="cardType">
+            <option value="TRABALHADOR">TRABALHADOR</option>
+            <option value="COMUM">COMUM</option>
+            <option value="ESTUDANTE">ESTUDANTE</option>
+          </select>
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Criar Cartão</button>
+      </form>
+    
+   
+      
   </div>
