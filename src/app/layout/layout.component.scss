@@ -1,0 +1,55 @@
+/* layout.component.scss */
+.container-fluid {
+    display: flex;
+    height: 100vh;
+    flex-direction: row; /* Arrange children horizontally */
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Fixed width for the sidebar */
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    z-index: 1000; /* Ensure the sidebar is above other content */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Transition for smooth animation */
+    
+    @media (max-width: 992px) { /* Adjust for medium screens */
+      width: 200px;
+    }
+    
+    @media (max-width: 768px) { /* Adjust for small screens */
+      width: 100%;
+      height: auto; /* Allow height to adjust automatically */
+      position: relative;
+    }
+  }
+  
+  .content {
+    margin-left: 250px; /* Space for the sidebar */
+    padding: 20px;
+    overflow-y: auto;
+    height: 100vh;
+    transition: margin-left 0.3s ease; /* Transition for smooth margin adjustment */
+    
+    @media (max-width: 992px) { /* Adjust for medium screens */
+      margin-left: 200px;
+    }
+    
+    @media (max-width: 768px) { /* Adjust for small screens */
+      margin-left: 0;
+      padding: 10px;
+    }
+  }
+  
+  .with-sidebar {
+    width: 100%;
+    margin-left: 250px;
+  }
+  
+  .without-sidebar {
+    margin-left: 0;
+  }

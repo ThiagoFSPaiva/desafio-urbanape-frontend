@@ -1,0 +1,26 @@
+.table {
+    thead {
+      background-color: #f8f9fa;
+      th {
+        font-weight: bold;
+      }
+    }
+  
+    tbody {
+      tr {
+        transition: background-color 0.3s;
+        
+        &:hover {
+          background-color: #f1f1f1;
+        }
+      }
+      
+      .text-success {
+        color: #28a745;
+      }
+  
+      .text-danger {
+        color: #dc3545;
+      }
+    }
+  }

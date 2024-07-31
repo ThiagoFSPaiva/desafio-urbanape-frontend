@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    <!-- Mensagem de boas-vindas -->
+    <h1>Bem-vindo, <span id="username">{{user?.name}}</span>!</h1>
+    
+  <!-- Cartões -->
+<div class="row"></div>
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let card of cards">
+        <div class="card hover-grow">
+            <img 
+                [src]="getCardImage(card.type)" 
+                class="card-img-top" 
+                alt="Imagem do cartão"
+            >
+            <div class="card-body">
+                <h5 class="card-title">{{ card.name }}</h5>
+                <p class="card-text">Tipo: {{ card.type }}</p>
+                <p class="card-text">Numero: {{ card.number }}</p>
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="cards.length === 0">
+        <h2>Voce não tem cards!</h2>
+    </div>
+</div>
+ 

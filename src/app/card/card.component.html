@@ -1,0 +1,34 @@
+<div class="container mt-5">
+    <!-- Tabela de cartões -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Number</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let card of cards">
+          <td>{{ card.id }}</td>
+          <td>{{ card.name }}</td>
+          <td>{{ card.number }}</td>
+          <td>{{ card.type }}</td>
+          <td>
+            <span [ngClass]="{ 'text-success': card.status, 'text-danger': !card.status }">
+              {{ card.status ? 'Active' : 'Inactive' }}
+            </span>
+          </td>
+          <td>
+            <button class="btn btn-primary btn-sm" (click)="toggleCardStatus(card)">
+              {{ card.status ? 'Deactivate' : 'Activate' }}
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="deleteCard(card.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

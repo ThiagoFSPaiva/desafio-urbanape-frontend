@@ -1,0 +1,31 @@
+<div class="sidebar">
+    <div class="sidebar-header">
+      <h3>Dashboard</h3>
+    </div>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="/home" routerLinkActive="active">
+          <i class="bi bi-house-door"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="isAdmin" routerLink="/user" routerLinkActive="active">
+          <i class="bi bi-person"></i>
+          <span>User</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="isAdmin" routerLink="/card" routerLinkActive="active">
+          <i class="bi bi-info-circle"></i>
+          <span>Card</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-logout" (click)="logout()">
+          <i class="bi bi-box-arrow-right"></i>
+          <span>Logout</span>
+        </button>
+      </li>
+    </ul>
+  </div>

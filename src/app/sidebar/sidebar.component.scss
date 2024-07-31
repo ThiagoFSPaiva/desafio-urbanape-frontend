@@ -1,0 +1,64 @@
+@mixin menu-item {
+    color: #d4d4d4;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s;
+  
+    .menu-icon {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+  }
+  
+  .sidebar {
+    background: linear-gradient(to right, #5c6bc0, #1a8aec);
+    width: 250px; /* Fixed width for the sidebar */
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Transition for smooth animation */
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar li a {
+    @include menu-item;
+  
+    &:hover {
+      background-color: rgb(241, 241, 241);
+      color: #6c6c6c;
+    }
+  
+    &.active {
+      color: #000000;
+      background-color: rgb(241, 241, 241);
+    }
+  
+    &.active:hover {
+      color: #000000;
+      background-color: rgb(230, 230, 230);
+    }
+  }
+  
+  .hideSidebar {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  
+  .showSidebar {
+    transform: translateX(0);
+    opacity: 1;
+  }

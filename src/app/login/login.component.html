@@ -1,0 +1,26 @@
+<div class="login">
+    <div class="container" id="container">
+      <div class="form-container sign-in">
+        <form (submit)="login($event)">
+          <h1>Login</h1>
+          <span>Faça login com email e senha</span>
+          <input type="text" name="email" placeholder="Email" [(ngModel)]="email" />
+          <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          [(ngModel)]="password"
+        />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+      <div class="toggle-container">
+        <div class="toggle">
+          <div class="toggle-panel toggle-right">
+            <img src="https://cartaovem.com.br/assets/logovem2.png" alt="">
+            <p>Esse é o desafio técnico de Thiago Paiva, fique à vontade para logar na plataforma.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

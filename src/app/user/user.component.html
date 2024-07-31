@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <!-- Formulário de criação e edição -->
+  <div class="mb-4">
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" class="form-control" [(ngModel)]="currentUser.name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" class="form-control" [(ngModel)]="currentUser.email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="role">Role:</label>
+        <select id="role" class="form-control" [(ngModel)]="currentUser.role" name="role" required>
+          <option value="ADMIN">Admin</option>
+          <option value="USER">User</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" class="form-control" [(ngModel)]="currentUser.password" name="password" [required]="!isEditing">
+      </div>
+      <button type="submit" class="btn btn-primary mt-2">{{ isEditing ? 'Update' : 'Create' }}</button>
+    </form>
+  </div>
+
+  <!-- Tabela de usuários -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="editUser(user)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
