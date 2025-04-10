@@ -1,3 +1,3 @@
 export const environment = {
-    api: 'http://localhost:8080',
+    api: 'desafio-backend-production-3fad.up.railway.app',
 }
