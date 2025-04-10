@@ -1,3 +1,4 @@
 export const environment = {
-    api: 'desafio-backend-production-3fad.up.railway.app',
-}
+  production: true,
+  api: 'https://desafio-backend-production-3fad.up.railway.app'
+};
